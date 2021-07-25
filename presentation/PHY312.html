@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Aabhas Gulati | Akshay Shankar">
+  <meta name="dcterms.date" content="2021-07-26">
+  <title>Charge density estimation with pressure</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+  <style>
+   p, li, ul {
+    font-size: 30px;
+  }
+
+    .reveal h1 {
+      font-size: 50px;
+  }
+
+    .reveal h2 {
+      font-size: 40px;
+  }
+
+    .reveal h3 {
+      font-size: 30px;
+      text-align: left;
+  }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Charge density estimation with pressure</h1>
+  <p class="author">Aabhas Gulati | Akshay Shankar</p>
+  <p class="date">July 26, 2021</p>
+</section>
+
+<section>
+<section id="aim-of-the-project" class="title-slide slide level1">
+<h1>Aim of the project</h1>
+
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><img data-src="./images/charge.png" style="width:75.0%" /></p>
+<ul>
+<li class="fragment">Measure the time response of the charge density on the surface</li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><img data-src="./images/current.png" style="width:75.0%" /></p>
+<ul>
+<li class="fragment">Measure the current flow through a known resistor</li>
+</ul>
+</section>
+<section id="piezo-electric-materials" class="slide level2">
+<h2>Piezo-electric materials</h2>
+<ul>
+<li class="fragment">generate an electric charge in response to applied mechanical stress</li>
+</ul>
+<div class="fragment">
+<p><strong>Constitutive equations:</strong> <span class="math display">\[S = s_E \cdot T + d^t \cdot E\]</span> <span class="math display">\[D = d \cdot T + \epsilon_T \cdot E\]</span></p>
+<ul>
+<li class="fragment"><strong>S</strong> = Strain; T = Stress;</li>
+<li class="fragment"><strong>D</strong> = charge-density displacement; <strong>E</strong> = Electric field;</li>
+<li class="fragment"><strong>d</strong> = piezo-electric co-efficients; <span class="math inline">\(\mathbf{\epsilon}\)</span> = permittivity</li>
+</ul>
+</div>
+</section>
+<section id="simulation-setup" class="slide level2">
+<h2>Simulation setup</h2>
+<ul>
+<li class="fragment"><p>We use the Piezo-electricity Multiphysics setup in COMSOL, by interfacing the <em>Structural Mechanics</em> and <em>Electrostatics</em> modules.</p></li>
+<li class="fragment"><p><strong>Structural Mechanics:</strong> Face B is set to a <em>fixed constraint</em>, and the force is applied on the material on Face A as a <em>boundary load</em>.</p></li>
+<li class="fragment"><p><strong>Electrostatics:</strong> Face B is set to <em>ground potential</em>, and Face A is set to <em>floating potential</em>, which acts as a perfectly conducting electrode.</p></li>
+</ul>
+</section>
+<section id="d-axi-symmetric-model" class="slide level2">
+<h2>2D Axi-symmetric model</h2>
+<p><img data-src="./images/mesh.png" style="width:40.0%" /></p>
+<ul>
+<li class="fragment">2D model is revolved around r = 0 axis to produce 3D result.</li>
+<li class="fragment">radius 300 microns</li>
+<li class="fragment">time range = <span class="math inline">\((0, 10^{-5}, 7.5\cdot 10^{-2})\)</span> <em>sec</em></li>
+</ul>
+</section>
+<section id="step-load-sigmoid" class="slide level2">
+<h2>Step load (sigmoid)</h2>
+<table>
+<thead>
+<tr class="header">
+<th><img data-src="./images/stepLoad.png" style="width:100.0%" /></th>
+<th><img data-src="./images/stepLoadGIF.gif" style="width:87.5%" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</section>
+<section id="delta-fn-load-gaussian" class="slide level2">
+<h2>Delta fn load (gaussian)</h2>
+<table>
+<thead>
+<tr class="header">
+<th><img data-src="./images/deltaLoad.png" style="width:100.0%" /></th>
+<th><img data-src="./images/deltaLoadGIF.gif" style="width:87.5%" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="results-part-1" class="title-slide slide level1">
+<h1>Results (Part 1)</h1>
+
+</section>
+<section id="pzt-5a-150-micron-thickness" class="slide level2">
+<h2>PZT-5A, 150 micron thickness</h2>
+<h3 id="step-load">Step load:</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PZT-5_150mic/StepFn/stresss.gif" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/data/PZT-5_150mic/StepFn/potential.gif" style="width:100.0%" alt="Potential" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="charge-density-distribution">Charge density distribution</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PZT-5_150mic/StepFn/charge.gif" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PZT-5_150mic/StepFn/AvCharge.png" style="width:89.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="gaussian-load">Gaussian load:</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PZT-5_150mic/DeltaFn/stresss.gif" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PZT-5_150mic/DeltaFn/charge.gif" style="width:75.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="chargepotential-change-over-time">Charge/Potential change over time</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PZT-5_150mic/DeltaFn/AvCharge.png" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PZT-5_150mic/DeltaFn/AvPotential.png" style="width:100.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pzt-5a-750-micron-thickness" class="slide level2">
+<h2>PZT-5A, 750 micron thickness</h2>
+<h3 id="gaussian-load-1">Gaussian load:</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PZT-5_750mic/DeltaFn/stresss.gif" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PZT-5_750mic/DeltaFn/charge.gif" style="width:75.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="chargepotential-change-over-time-1">Charge/Potential change over time</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PZT-5_750mic/DeltaFn/AvCharge.png" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PZT-5_750mic/DeltaFn/AvPotential.png" style="width:100.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pvdf-150-micron-thickness" class="slide level2">
+<h2>PVDF, 150 micron thickness</h2>
+<h3 id="step-load-1">Step load:</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PVDF_150mic/StepFn/stresss.gif" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/data/PVDF_150mic/StepFn/potential.gif" style="width:100.0%" alt="Potential" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="charge-density-distribution-1">Charge density distribution</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PVDF_150mic/StepFn/chargee.gif" style="width:75.0%" /></td>
+<td><img data-src="./images/data/PVDF_150mic/StepFn/AvCharge.png" style="width:100.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="gaussian-load-2">Gaussian load:</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PVDF_150mic/DeltaFn/stresss.gif" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PVDF_150mic/DeltaFn/charge.gif" style="width:80.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="chargepotential-change-over-time-2">Charge/Potential change over time</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PVDF_150mic/DeltaFn/AvCharge.png" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PVDF_150mic/DeltaFn/AvPotential.png" style="width:100.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pvdf-750-micron-thickness" class="slide level2">
+<h2>PVDF, 750 micron thickness</h2>
+<h3 id="gaussian-load-3">Gaussian load:</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PVDF_750mic/DeltaFn/chargee.gif" style="width:75.0%" /></td>
+<td><img data-src="./images/data/PVDF_750mic/DeltaFn/AvCharge.png" style="width:100.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
