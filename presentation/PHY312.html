@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <script src="../chalkboard/plugin.js"></script>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,7 +81,7 @@
 <div class="fragment">
 <p><strong>Constitutive equations:</strong> <span class="math display">\[S = s_E \cdot T + d^t \cdot E\]</span> <span class="math display">\[D = d \cdot T + \epsilon_T \cdot E\]</span></p>
 <ul>
-<li class="fragment"><strong>S</strong> = Strain; T = Stress;</li>
+<li class="fragment"><strong>S</strong> = Strain; <strong>T</strong> = Stress;</li>
 <li class="fragment"><strong>D</strong> = charge-density displacement; <strong>E</strong> = Electric field;</li>
 <li class="fragment"><strong>d</strong> = piezo-electric co-efficients; <span class="math inline">\(\mathbf{\epsilon}\)</span> = permittivity</li>
 </ul>
@@ -260,11 +261,93 @@
 <table>
 <tbody>
 <tr class="odd">
-<td><img data-src="./images/data/PVDF_750mic/DeltaFn/chargee.gif" style="width:75.0%" /></td>
-<td><img data-src="./images/data/PVDF_750mic/DeltaFn/AvCharge.png" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PVDF_750mic/DeltaFn/stresss.gif" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PVDF_750mic/DeltaFn/chargee.gif" style="width:100.0%" /></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="pvdf-750-micron-1" class="slide level2">
+<h2>PVDF, 750 micron</h2>
+<h3 id="chargepotential-change-over-time-3">Charge/Potential change over time</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/data/PVDF_750mic/DeltaFn/AvCharge.png" style="width:100.0%" /></td>
+<td><img data-src="./images/data/PVDF_750mic/DeltaFn/AvPotential.png" style="width:100.0%" /></td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="results-part-2" class="title-slide slide level1">
+<h1>Results (Part 2)</h1>
+
+</section>
+<section id="pzt-5a-150-micron-4" class="slide level2">
+<h2>PZT-5A, 150 micron</h2>
+<h3 id="step-load-r-in-105omega-rightarrow-1010-omega">Step load: R <span class="math inline">\(\in\)</span> (<span class="math inline">\(10^5\Omega\)</span> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(10^{10} \Omega\)</span>)</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/CircuitData/PZT_150_Step/r5.png" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Step/r6.png" style="width:100.0%" alt="Potential" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Step/r7.png" style="width:100.0%" alt="Potential" /></td>
+</tr>
+<tr class="even">
+<td><img data-src="./images/CircuitData/PZT_150_Step/r8.png" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Step/r9.png" style="width:100.0%" alt="Potential" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Step/r10.png" style="width:100.0%" alt="Potential" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pzt-5a-150-micron-5" class="slide level2">
+<h2>PZT-5A, 150 micron</h2>
+<h3 id="gaussian-load-r-in-105omega-rightarrow-1010-omega">Gaussian load: R <span class="math inline">\(\in\)</span> (<span class="math inline">\(10^5\Omega\)</span> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(10^{10} \Omega\)</span>)</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/CircuitData/PZT_150_Delta/r5.png" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Delta/r6.png" style="width:100.0%" alt="Potential" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Delta/r7.png" style="width:100.0%" alt="Potential" /></td>
+</tr>
+<tr class="even">
+<td><img data-src="./images/CircuitData/PZT_150_Delta/r8.png" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Delta/r9.png" style="width:100.0%" alt="Potential" /></td>
+<td><img data-src="./images/CircuitData/PZT_150_Delta/r9.png" style="width:100.0%" alt="Potential" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pvdf-150-micron-4" class="slide level2">
+<h2>PVDF, 150 micron</h2>
+<h3 id="step-load-r-in-105omega-rightarrow-107-omega">Step load: R <span class="math inline">\(\in\)</span> (<span class="math inline">\(10^5\Omega\)</span> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(10^7 \Omega\)</span>)</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/CircuitData/PVDF_150_Step/r5.png" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/CircuitData/PVDF_150_Step/r6.png" style="width:100.0%" alt="Potential" /></td>
+<td><img data-src="./images/CircuitData/PVDF_150_Step/r7.png" style="width:100.0%" alt="Potential" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pvdf-150-micron-5" class="slide level2">
+<h2>PVDF, 150 micron</h2>
+<h3 id="gaussian-load-r-in-103omega-rightarrow-105-omega">Gaussian load: R <span class="math inline">\(\in\)</span> (<span class="math inline">\(10^3\Omega\)</span> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(10^5 \Omega\)</span>)</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="./images/CircuitData/PVDF_150_Delta/r3.png" style="width:100.0%" alt="Stress" /></td>
+<td><img data-src="./images/CircuitData/PVDF_150_Delta/r4.png" style="width:100.0%" alt="Potential" /></td>
+<td><img data-src="./images/CircuitData/PVDF_150_Delta/r5.png" style="width:100.0%" alt="Potential" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="end" class="slide level2">
+<h2>– END –</h2>
 </section></section>
     </div>
   </div>
@@ -306,7 +389,8 @@
           RevealMath,
           RevealNotes,
           RevealSearch,
-          RevealZoom
+          RevealZoom,
+          RevealChalkboard
         ]
       });
     </script>
